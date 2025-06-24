@@ -31,20 +31,6 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-function debounce<T extends (...args: any[]) => void>(
-  func: T,
-  delay: number
-): (...args: Parameters<T>) => void {
-  let timeoutId: ReturnType<typeof setTimeout>;
-
-  return function (this: unknown, ...args: Parameters<T>) {
-    clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => {
-      func.apply(this, args);
-    }, delay);
-  };
-}
-
 function throttle<T extends (...args: any[]) => void>(
   func: T,
   delay: number
@@ -92,7 +78,7 @@ function init(lang = "vi") {
   return pageFlip;
 }
 
-function changeLang(lang: string) {
-  localStorage.setItem(LANG, lang);
-  return lang;
-}
+// function changeLang(lang: string) {
+//   localStorage.setItem(LANG, lang);
+//   return lang;
+// }
