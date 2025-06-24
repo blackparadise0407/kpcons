@@ -15,7 +15,8 @@ window.addEventListener("DOMContentLoaded", () => {
       if (e.deltaY > 0) {
         pageFlip.flipNext();
       } else {
-        if (pageFlip.getCurrentPageIndex() === 1) {
+        const idx = pageFlip.getCurrentPageIndex();
+        if (idx === 1) {
           return;
         }
         pageFlip.flipPrev();
