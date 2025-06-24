@@ -48,7 +48,10 @@ function throttle<T extends (...args: any[]) => void>(
 }
 
 function init(lang = "vi") {
-  const IDEAL_HEIGHT = window.innerHeight - 100;
+  const isMobile = window.innerWidth <= 640;
+  const IDEAL_HEIGHT = isMobile
+    ? window.innerWidth / RATIO
+    : window.innerHeight - 100;
   const root = document.createElement("div");
   root.id = "brochure";
   document.body.append(root);
@@ -64,8 +67,8 @@ function init(lang = "vi") {
     flippingTime: 300,
     showCover: true,
     startPage: 1,
-    disableFlipByClick: true,
-    showPageCorners: false,
+    disableFlipByClick: !isMobile,
+    showPageCorners: isMobile,
   });
 
   pageFlip.loadFromImages(
