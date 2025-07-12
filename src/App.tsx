@@ -4,14 +4,14 @@ import Slider, { type Settings } from "react-slick";
 
 import { Header } from "@/components";
 import { throttle } from "@/lib/helper";
-import { usePreloadImages, useWindowSize } from "./lib/hooks";
+import { useWindowSize } from "./lib/hooks";
 
 const PAGES = 70;
 
 const BREAKPOINT = 1024;
 
 function App() {
-  usePreloadImages();
+  // usePreloadImages();
   const ref = useRef<Slider | null>(null);
   const [page, setPage] = useState(0);
   const { width } = useWindowSize();

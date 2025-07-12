@@ -15,10 +15,24 @@
       type="text/css"
       href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
     />
+
     <title>Kpcons</title>
   </head>
   <body class="overflow-hidden font-sans">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      let html = "";
+      ["eng", "vi"].forEach((lang) => {
+        Array.from({ length: 70 }).forEach((_, i) => {
+          html += `<link rel="preload" as="image" href="/images/${lang}/KPC.BROCHURE-${lang}-${i}.webp" />`;
+        });
+      });
+      const temp = document.createElement("div");
+      temp.innerHTML = html;
+      Array.from(temp.children).forEach((el) => {
+        document.head.appendChild(el);
+      });
+    </script>
   </body>
 </html>
