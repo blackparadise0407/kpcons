@@ -4,14 +4,18 @@ import Slider, { type Settings } from "react-slick";
 
 import { Header } from "@/components";
 import { throttle } from "@/lib/helper";
+import { usePreloadImages, useWindowSize } from "./lib/hooks";
 
 const PAGES = 70;
 
 const BREAKPOINT = 1024;
 
 function App() {
+  usePreloadImages();
   const ref = useRef<Slider | null>(null);
   const [page, setPage] = useState(0);
+  const { width } = useWindowSize();
+  const SLIDE_TO_SCROLL = width <= BREAKPOINT ? 1 : 2;
 
   const settings: Settings = {
     responsive: [
@@ -19,12 +23,12 @@ function App() {
         breakpoint: BREAKPOINT,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1,
+          slidesToScroll: SLIDE_TO_SCROLL,
         },
       },
     ],
     slidesToShow: 2,
-    slidesToScroll: 2,
+    slidesToScroll: SLIDE_TO_SCROLL,
     dots: false,
     autoplay: false,
     adaptiveHeight: false,
@@ -37,9 +41,9 @@ function App() {
     // scrolled down
     setPage((prev) => {
       if (e.deltaY > 0) {
-        prev += 2;
+        prev += SLIDE_TO_SCROLL;
       } else {
-        prev -= 2;
+        prev -= SLIDE_TO_SCROLL;
       }
       if (prev >= PAGES) {
         return PAGES;
