@@ -24,6 +24,7 @@ function App() {
         settings: {
           slidesToShow: 1,
           slidesToScroll: SLIDE_TO_SCROLL,
+          fade: true,
         },
       },
     ],
