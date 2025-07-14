@@ -25,7 +25,7 @@
       let html = "";
       ["eng", "vi"].forEach((lang) => {
         Array.from({ length: 70 }).forEach((_, i) => {
-          html += `<link rel="preload" as="image" href="/images/${lang}/KPC.BROCHURE-${lang}-${i}.webp" />`;
+          html += `<link rel="preload" href="/images/${lang}/KPC.BROCHURE-${lang}-${i}.webp" as="image" type="image/webp" />`;
         });
       });
       const temp = document.createElement("div");

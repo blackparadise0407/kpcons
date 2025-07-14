@@ -4,9 +4,14 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 
 import App from "./App.tsx";
+import { LanguageProvider, TranslationsProvider } from "./providers";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
+    <LanguageProvider>
+      <TranslationsProvider>
+        <App />
+      </TranslationsProvider>
+    </LanguageProvider>
   </StrictMode>
 );
