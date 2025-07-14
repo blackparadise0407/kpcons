@@ -2,7 +2,7 @@ import { useTranslation } from "@/lib/hooks";
 import { LangBtn } from "../lang-btn";
 
 export default function Header() {
-  const { get } = useTranslation();
+  const i18n = useTranslation();
 
   return (
     <nav className="h-[64px] md:h-[120px] flex items-center gap-10 px-3 bg-black">
@@ -13,13 +13,11 @@ export default function Header() {
         className="w-[92px] md:w-[200px]"
         alt="logo"
       />
-      <ul className="gap-10 text-white text-xl font-semibold uppercase hidden md:flex">
-        <li>
-          <a className="" href="/">
-            {get("home")}
-          </a>
-        </li>
-      </ul>
+      <div className="font-[Montserrat] text-white hidden md:block shrink-0 leading-7">
+        <p>{i18n.get("header_title")}</p>
+        <p>{i18n.get("header_address")}</p>
+        <p>{i18n.get("header_info")}</p>
+      </div>
 
       <div className="grow"></div>
       <LangBtn />

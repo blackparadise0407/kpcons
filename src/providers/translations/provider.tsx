@@ -48,7 +48,7 @@ export const TranslationsProvider = ({
         translations,
         get: (key) => {
           if (!translations[lang]) {
-            return key;
+            return "";
           }
           try {
             return translations[lang][key] || key;

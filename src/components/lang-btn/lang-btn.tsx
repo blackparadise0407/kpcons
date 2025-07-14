@@ -12,7 +12,11 @@ export default function LangBtn() {
       className="p-3 bg-neutral-700 cursor-pointer"
       onClick={handleToggleLang}
     >
-      <img src={`/${lang}.png`} width="18" height="12" />
+      <img
+        src={`/${lang === "eng" ? "vi" : "eng"}.png`}
+        width="18"
+        height="12"
+      />
     </button>
   );
 }
