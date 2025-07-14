@@ -76,7 +76,7 @@ function App() {
       <Header />
       <main>
         <Slider
-          className="h-[calc(100svh-64px)] md:h-[calc(100svh-120px)] bg-neutral-800"
+          className="h-[calc(100svh-64px)] md:h-[calc(100svh-120px)] bg-no-repeat bg-cover bg-center bg-[url(/background-portrait.jpg)] md:bg-[url(/background-landscape.jpg)]"
           ref={ref}
           {...settings}
         >
