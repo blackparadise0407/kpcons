@@ -34,6 +34,7 @@ function App() {
     autoplay: false,
     adaptiveHeight: false,
     arrows: false,
+    infinite: false,
     lazyLoad: "ondemand",
     afterChange: setPage,
   };
@@ -49,7 +50,7 @@ function App() {
       if (prev >= PAGES) {
         return PAGES;
       } else if (prev <= 1) {
-        return 1;
+        return 0;
       }
       return prev;
     });
