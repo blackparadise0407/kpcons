@@ -24,6 +24,7 @@ export const TranslationsProvider = ({
       fetch(`/locales/${lang}.json?v=${import.meta.env.PACKAGE_VERSION}`, {
         cache: "force-cache",
         signal: controller.signal,
+        priority: "high",
       })
         .then((res) => res.json())
         .then((resp) => {
@@ -46,6 +47,9 @@ export const TranslationsProvider = ({
       value={{
         translations,
         get: (key) => {
+          if (!translations[lang]) {
+            return key;
+          }
           try {
             return translations[lang][key] || key;
           } catch {
