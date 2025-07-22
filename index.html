@@ -28,18 +28,20 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script>
-      let html = "";
-      ["eng", "vi"].forEach((lang) => {
-        Array.from({ length: 70 }).forEach((_, i) => {
-          html += `<link rel="preload" href="/images/${lang}/KPC.BROCHURE-${lang}-${
-            i + 1
-          }.webp" as="image" type="image/webp" />`;
+      window.addEventListener("DOMContentLoaded", () => {
+        let html = "";
+        ["eng", "vi"].forEach((lang) => {
+          Array.from({ length: 70 }).forEach((_, i) => {
+            html += `<link rel="preload" href="/images/${lang}/KPC.BROCHURE-${lang}-${
+              i + 1
+            }.webp" as="image" type="image/webp" />`;
+          });
         });
-      });
-      const temp = document.createElement("div");
-      temp.innerHTML = html;
-      Array.from(temp.children).forEach((el) => {
-        document.head.appendChild(el);
+        const temp = document.createElement("div");
+        temp.innerHTML = html;
+        Array.from(temp.children).forEach((el) => {
+          document.head.appendChild(el);
+        });
       });
     </script>
   </body>
