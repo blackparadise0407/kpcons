@@ -27,27 +27,5 @@
   <body class="overflow-hidden font-sans">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script>
-      window.addEventListener("DOMContentLoaded", () => {
-        setTimeout(() => {
-          let currentLang =
-            window.localStorage.getItem("__kpcons_lang") || "vi";
-          currentLang = ["vi", "eng", "cn"].includes(currentLang)
-            ? currentLang
-            : "vi";
-          let html = "";
-          Array.from({ length: 20 }).forEach((_, i) => {
-            html += `<link rel="preload" href="/images/${currentLang}/KPC.BROCHURE-${currentLang}-${
-              i + 1
-            }.webp" as="image" type="image/webp" />`;
-          });
-          const temp = document.createElement("div");
-          temp.innerHTML = html;
-          Array.from(temp.children).forEach((el) => {
-            document.head.appendChild(el);
-          });
-        }, 0);
-      });
-    </script>
   </body>
 </html>

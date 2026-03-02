@@ -40,7 +40,7 @@ function App() {
     adaptiveHeight: false,
     arrows: false,
     infinite: false,
-    lazyLoad: "ondemand",
+    lazyLoad: "anticipated",
     afterChange: setPage,
   };
 
