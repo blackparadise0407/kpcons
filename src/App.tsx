@@ -96,6 +96,8 @@ function App() {
             >
               <img
                 loading="lazy"
+                width={600}
+                height={800}
                 className={clsx(
                   "sm:h-[calc(100svh-120px)] sm:w-fit my-auto aspect-[1 / 1.4142] mx-auto lg:mx-0 bg-white",
                   i % 2 === 0 && "lg:ml-auto",
