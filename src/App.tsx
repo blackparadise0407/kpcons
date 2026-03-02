@@ -5,8 +5,13 @@ import Slider, { type Settings } from "react-slick";
 import { Header } from "@/components";
 import { throttle } from "@/lib/helper";
 import { useLanguage, useWindowSize } from "./lib/hooks";
+import type { SupportedLanguage } from "./providers/language/provider";
 
-const PAGES = 70;
+const PAGES: Record<SupportedLanguage, number> = {
+  eng: 71,
+  vi: 71,
+  cn: 62,
+};
 
 const BREAKPOINT = 1024;
 
@@ -47,9 +52,9 @@ function App() {
       } else {
         prev -= SLIDE_TO_SCROLL;
       }
-      if (prev >= PAGES) {
-        return PAGES;
-      } else if (prev <= 1) {
+      if (prev >= PAGES[lang]) {
+        return PAGES[lang];
+      } else if (prev <= 0) {
         return 0;
       }
       return prev;
@@ -71,6 +76,10 @@ function App() {
     ref.current?.slickGoTo(page);
   }, [page]);
 
+  useEffect(() => {
+    setPage(0);
+  }, [lang]);
+
   return (
     <>
       <Header />
@@ -80,7 +89,7 @@ function App() {
           ref={ref}
           {...settings}
         >
-          {Array.from({ length: PAGES }).map((_, i) => (
+          {Array.from({ length: PAGES[lang] }).map((_, i) => (
             <div
               key={i}
               data-i={i}
@@ -90,7 +99,7 @@ function App() {
                 loading="eager"
                 className={clsx(
                   "sm:h-[calc(100svh-120px)] sm:w-fit my-auto aspect-[1 / 1.4142] mx-auto lg:mx-0",
-                  i % 2 === 0 && "lg:ml-auto"
+                  i % 2 === 0 && "lg:ml-auto",
                 )}
                 src={`/images/${lang}/KPC.BROCHURE-${lang}-${i + 1}.webp`}
               />

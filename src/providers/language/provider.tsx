@@ -1,9 +1,10 @@
 import { useState } from "react";
+
 import { LanguageContext } from "./context";
 
 const STORAGE_KEY = "__kpcons_lang";
 
-export type SupportedLanguage = "eng" | "vi";
+export type SupportedLanguage = "eng" | "vi" | "cn";
 
 const parseLang = (lang?: string | null): SupportedLanguage => {
   if (!lang) {
@@ -12,6 +13,7 @@ const parseLang = (lang?: string | null): SupportedLanguage => {
   switch (lang) {
     case "eng":
     case "vi":
+    case "cn":
       return lang;
     default:
       return "vi";
@@ -24,7 +26,7 @@ export const LanguageProvider = ({
   children: React.ReactNode;
 }) => {
   const [lang, setLang] = useState<LanguageContext["lang"]>(
-    parseLang(localStorage.getItem(STORAGE_KEY))
+    parseLang(localStorage.getItem(STORAGE_KEY)),
   );
 
   return (

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -31,8 +31,8 @@
       window.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
           let html = "";
-          ["eng", "vi"].forEach((lang) => {
-            Array.from({ length: 70 }).forEach((_, i) => {
+          ["eng", "vi", "cn"].forEach((lang) => {
+            Array.from({ length: 62 }).forEach((_, i) => {
               html += `<link rel="preload" href="/images/${lang}/KPC.BROCHURE-${lang}-${
                 i + 1
               }.webp" as="image" type="image/webp" />`;
