@@ -8,8 +8,8 @@ import { useLanguage, useWindowSize } from "./lib/hooks";
 import type { SupportedLanguage } from "./providers/language/provider";
 
 const PAGES: Record<SupportedLanguage, number> = {
-  eng: 70,
-  vi: 70,
+  eng: 72,
+  vi: 72,
   cn: 62,
 };
 
@@ -102,6 +102,10 @@ function App() {
                   i % 2 === 0 && "lg:ml-auto",
                 )}
                 src={`/images/${lang}/KPC.BROCHURE-${lang}-${i + 1}.webp`}
+                onError={(e: any) => {
+                  e.target.src = "/blank.png";
+                  e.target.onerror = null;
+                }}
               />
             </div>
           ))}
