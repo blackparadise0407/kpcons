@@ -8,8 +8,8 @@ import { useLanguage, useWindowSize } from "./lib/hooks";
 import type { SupportedLanguage } from "./providers/language/provider";
 
 const PAGES: Record<SupportedLanguage, number> = {
-  eng: 71,
-  vi: 71,
+  eng: 70,
+  vi: 70,
   cn: 62,
 };
 
