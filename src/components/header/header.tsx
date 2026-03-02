@@ -14,7 +14,7 @@ export default function Header() {
         alt="logo"
       />
       <div className="font-[Montserrat] text-white hidden md:block shrink-0 leading-7">
-        <p>{i18n.get("header_title")}</p>
+        <p className="text-lg font-bold">{i18n.get("header_title")}</p>
         <p>{i18n.get("header_address")}</p>
         <p>{i18n.get("header_info")}</p>
       </div>
