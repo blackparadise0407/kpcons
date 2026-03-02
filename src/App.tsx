@@ -40,7 +40,6 @@ function App() {
     adaptiveHeight: false,
     arrows: false,
     infinite: false,
-    lazyLoad: "progressive",
     afterChange: setPage,
   };
 
@@ -96,7 +95,7 @@ function App() {
               className="h-[calc(100svh-64px)] md:h-[calc(100svh-120px)] !flex flex-col justify-center"
             >
               <img
-                loading="eager"
+                loading="lazy"
                 className={clsx(
                   "sm:h-[calc(100svh-120px)] sm:w-fit my-auto aspect-[1 / 1.4142] mx-auto lg:mx-0 bg-white",
                   i % 2 === 0 && "lg:ml-auto",
