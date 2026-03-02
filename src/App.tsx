@@ -98,7 +98,7 @@ function App() {
               <img
                 loading="eager"
                 className={clsx(
-                  "sm:h-[calc(100svh-120px)] sm:w-fit my-auto aspect-[1 / 1.4142] mx-auto lg:mx-0",
+                  "sm:h-[calc(100svh-120px)] sm:w-fit my-auto aspect-[1 / 1.4142] mx-auto lg:mx-0 bg-white",
                   i % 2 === 0 && "lg:ml-auto",
                 )}
                 src={`/images/${lang}/KPC.BROCHURE-${lang}-${i + 1}.webp`}
