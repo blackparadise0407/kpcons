@@ -30,13 +30,16 @@
     <script>
       window.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
+          let currentLang =
+            window.localStorage.getItem("__kpcons_lang") || "vi";
+          currentLang = ["vi", "eng", "cn"].includes(currentLang)
+            ? currentLang
+            : "vi";
           let html = "";
-          ["eng", "vi", "cn"].forEach((lang) => {
-            Array.from({ length: 62 }).forEach((_, i) => {
-              html += `<link rel="preload" href="/images/${lang}/KPC.BROCHURE-${lang}-${
-                i + 1
-              }.webp" as="image" type="image/webp" />`;
-            });
+          Array.from({ length: 20 }).forEach((_, i) => {
+            html += `<link rel="preload" href="/images/${currentLang}/KPC.BROCHURE-${currentLang}-${
+              i + 1
+            }.webp" as="image" type="image/webp" />`;
           });
           const temp = document.createElement("div");
           temp.innerHTML = html;
